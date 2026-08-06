@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Haven Hotel</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Haven Hotel</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="rooms-container">
+            <h1 class="page-title">Contact Us</h1>
+
+            <!-- CONTACT SECTION -->
+            <div class="contact-container">
+                <!-- LEFT COLUMN: CONTACT INFO -->
+                <div>
+                    <h3>Get In Touch</h3>
+                    <p>We'd love to hear from you. Please don't hesitate to reach out with any questions or inquiries.</p>
+
+                    <h4 style="margin-top: 30px; color: #1abc9c; font-size: 16px;">📧 Email</h4>
+                    <p><a href="mailto:info@havenhotel.com" style="color: #1a2332; text-decoration: none;">info@havenhotel.com</a></p>
+
+                    <h4 style="margin-top: 20px; color: #1abc9c; font-size: 16px;">📱 Phone</h4>
+                    <p><a href="tel:+18005848653" style="color: #1a2332; text-decoration: none;">+1-800-HAVEN-HOTEL</a></p>
+                    <p>Available 24/7 for reservations and inquiries</p>
+
+                    <h4 style="margin-top: 20px; color: #1abc9c; font-size: 16px;">📍 Address</h4>
+                    <p>123 Luxury Lane<br>Premium City, PC 12345<br>United States</p>
+
+                    <h4 style="margin-top: 30px; color: #1abc9c; font-size: 16px;">Follow Us On Social Media</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" title="Facebook">f</a>
+                        <a href="#" target="_blank" title="Instagram">📷</a>
+                        <a href="#" target="_blank" title="Twitter">𝕏</a>
+                        <a href="#" target="_blank" title="LinkedIn">in</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: CONTACT FORM -->
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <h3>Send us a Message</h3>
+
+                    <!-- NAME FIELD -->
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <!-- EMAIL FIELD -->
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <!-- SUBJECT FIELD -->
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this regarding?">
+                    </div>
+
+                    <!-- MESSAGE FIELD -->
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Please enter your message here..." required></textarea>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit" class="submit-button">Send Message</button>
+
+                    <!-- MESSAGE DISPLAY -->
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:info@havenhotel.com">info.bidhan@havenhotel.com</a></p>
+                <p>Phone: <a href="tel:+18005848653">+1-800-HAVEN-HOTEL</a></p>
+                <p>Address: 123, baylis street, Wagga Wagga, Australia</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Haven Hotel. All rights reserved. Find Your Haven.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const messageDiv = document.getElementById('formMessage');
+            
+            messageDiv.textContent = '';
+            messageDiv.className = 'form-message';
+            
+            if (!name) {
+                messageDiv.textContent = '❌ Please enter your name';
+                messageDiv.className = 'form-message error';
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.textContent = '❌ Please enter a valid email address';
+                messageDiv.className = 'form-message error';
+                return;
+            }
+            
+            if (!message) {
+                messageDiv.textContent = '❌ Please enter your message';
+                messageDiv.className = 'form-message error';
+                return;
+            }
+            
+            messageDiv.textContent = '✓ Thank you! Your message has been sent successfully. We will contact you soon.';
+            messageDiv.className = 'form-message success';
+            
+            setTimeout(() => {
+                document.querySelector('.contact-form').reset();
+                messageDiv.textContent = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
