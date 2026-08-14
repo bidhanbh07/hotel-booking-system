@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Haven Hotel</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Haven Hotel</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   
+    <main>
+        <div class="gallery-container">
+            <h1 class="page-title">Hotel Gallery</h1>
+
+            
+            <img src="images/gallery-1.jpg" alt="Haven Hotel - Gallery view of luxury accommodations" class="main-image" id="mainImage">
+
+         
+            <div class="thumbnails">
+                <img src="images/pexels-arshad-khan-1370011891-35868592.jpg" alt="Gallery image 1" class="thumbnail active" onclick="changeImage(this)">
+                <img src="images/pexels-cottonbro-6466303.jpg"class="thumbnail" onclick="changeImage(this)">
+                <img src="images/pexels-cottonbro-6466496.jpg" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/pexels-jdgromov-4716814.jpg"class="thumbnail" onclick="changeImage(this)">
+                <img src="images/pexels-sk8805-37535965.jpg" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/room-deluxe.jpg"  class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:info@havenhotel.com">info.bidhan@havenhotel.com</a></p>
+                <p>Phone: <a href="tel:+18005848653">+1-800-HAVEN-HOTEL</a></p>
+                <p>Address: 123, baylis street, Wagga Wagga, Australia</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Haven Hotel. All rights reserved. Find Your Haven.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function changeImage(thumbnail) {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+    </script>
+</body>
+</html>
